@@ -63,7 +63,7 @@
         <table class="table" style="word-break: break-word">
             <thead>
                 <th></th>
-                <th class="pointer" (click)="sortTriageViews('Id',idDesc)">Id
+                <th class="pointer" (click)="sortTriageViews('Id')">Id
                      <i class="text-primary fa" [ngClass]="idDesc? 'fa-caret-down' : 'fa-caret-up'"></i>
                 </th>
                 <th>Name</th>
@@ -87,7 +87,7 @@
                 <th *ngIf="false">TFS</th>
                 <th>Action</th>
             </thead>
-            <tbody *ngFor="let triageViewSupervisor of setPage(triageViewSupervisors | displayTypeFilter: displayType); trackBy: index">
+            <tbody *ngFor="let triageViewSupervisor of setPage(triageViewSupervisors | displayTypeFilter: displayType); trackBy: trackByIndex">
                 <tr>
                     <th class="text-primary" (click)="expandStatistic(triageViewSupervisor)">
                         <i [ngClass]="triageViewSupervisor.expandStatistic ? 'fa fa-chevron-up': 'fa fa-chevron-down'"></i>
@@ -165,7 +165,7 @@
                             <label class="control-label col-sm-2" for="customerId">CustomerId:</label>
                             <div class="col-sm-9">
                                 <select class="form-control" name="customerId" [(ngModel)]="currentCustomerId" (change)="changeCustomerId()">
-                                    <option *ngFor="let customerId of customerIds; trackBy: index" [ngValue]="customerId" [innerHTML]="customerId"></option>
+                                    <option *ngFor="let customerId of customerIds; trackBy: trackByIndex" [ngValue]="customerId" [innerHTML]="customerId"></option>
                                 </select>
                             </div>
                             <i class="fa fa-spinner fa-pulse fa-fw" style="margin-top: 10px;" *ngIf="loadingState.isLoadingCustomerId"></i>
@@ -175,7 +175,7 @@
                             <div class="col-sm-9">
                                 <select class="form-control" name="customerEnv" [(ngModel)]="currentCustomerEnv" (change)="changeCustomerEnv()" 
                                     [disabled]="loadingState.isLoadingCustomerEnv">
-                                    <option *ngFor="let customerEnv of customerEnvs; trackBy: index" [ngValue]="customerEnv" [innerHtml]="customerEnv"></option>
+                                    <option *ngFor="let customerEnv of customerEnvs; trackBy: trackByIndex" [ngValue]="customerEnv" [innerHtml]="customerEnv"></option>
                                 </select>
                             </div>
                             <i class="fa fa-spinner fa-pulse fa-fw" style="margin-top: 10px;" *ngIf="loadingState.isLoadingCustomerEnv"></i>
@@ -185,7 +185,7 @@
                             <div class="col-sm-9">
                                 <select class="form-control" name="entitySpace" [(ngModel)]="currentEntitySpace" (change)="changeEntitySpace()" 
                                     [disabled]="loadingState.isLoadingEntitySpace">
-                                    <option *ngFor="let entitySpace of entitySpaces; trackBy: index" [ngValue]="entitySpace" [innerHtml]="entitySpace"></option>
+                                    <option *ngFor="let entitySpace of entitySpaces; trackBy: trackByIndex" [ngValue]="entitySpace" [innerHtml]="entitySpace"></option>
                                 </select>
                             </div>
                             <i class="fa fa-spinner fa-pulse fa-fw" style="margin-top: 10px;" *ngIf="loadingState.isLoadingEntitySpace"></i>
@@ -195,7 +195,7 @@
                             <div class="col-sm-9">
                                 <select class="form-control" name="entitySpaceView" [(ngModel)]="currentEntitySpaceView" 
                                     [disabled]="loadingState.isLoadingEntitySpaceView">
-                                    <option *ngFor="let entitySpaceView of entitySpaceViews; trackBy: index" [ngValue]="entitySpaceView" 
+                                    <option *ngFor="let entitySpaceView of entitySpaceViews; trackBy: trackByIndex" [ngValue]="entitySpaceView" 
                                         [innerHtml]="entitySpaceView"></option>
                                 </select>
                             </div>

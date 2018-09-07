@@ -9,10 +9,10 @@ import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
 //routes
 import { AppRoutingModule } from "./app-routing.module";
 import { AppComponent } from "./app.component";
-//plugins
-//import {SlimLoadingBarModule} from 'ng2-slim-loading-bar'
 
 import { AuthenticationGuard } from "./components/loginAuth/authGuard";
+import { AutofocusDirective } from "./components/triage/autofocus.diretive";
+import { FilterPipe } from "./pipe/FilterPipe";
 
 
 @NgModule({
@@ -23,9 +23,8 @@ import { AuthenticationGuard } from "./components/loginAuth/authGuard";
         CommonModule,
         AngularWebStorageModule,
         AppRoutingModule
-        //SlimLoadingBarModule.forRoot()
     ],
-    declarations: [AppComponent],
+    declarations: [AppComponent, AutofocusDirective, FilterPipe],
     providers: [AdalService, AdalGuard, AuthenticationGuard],
     bootstrap: [AppComponent]
 })

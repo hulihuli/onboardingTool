@@ -7,7 +7,8 @@ let allRoutes: Routes = [
     { path: "", redirectTo: "triage", pathMatch: "full" },
     {
         path: "triage",
-        loadChildren: './components/triage/triage.module#TriageModule'
+        loadChildren: './components/triage/triage.module#TriageModule',
+        canActivate: [AuthenticationGuard]
     },
     {
         path: "dashboard",

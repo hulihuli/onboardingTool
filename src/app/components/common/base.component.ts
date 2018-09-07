@@ -10,13 +10,13 @@ import {
     HttpResponse
 } from "@angular/common/http";
 
-import { 
-    AnalysisType, 
-    EntitySpaceViewVersionState, 
-    ViewerType, 
-    WorkItemState, 
-    TriageAnalysisResultDiaplayType, 
-    EntitySpaceViewState ,
+import {
+    AnalysisType,
+    EntitySpaceViewVersionState,
+    ViewerType,
+    WorkItemState,
+    TriageAnalysisResultDiaplayType,
+    EntitySpaceViewState,
     ReportType,
     MissSlaType
 } from '../../core/enums';
@@ -56,5 +56,9 @@ export class BaseComponent implements OnInit {
         else {
             return Number((hours / 24).toFixed(2));
         }
+    }
+
+    trackByIndex(index: number, item: any) {
+        return item.id;
     }
 }
