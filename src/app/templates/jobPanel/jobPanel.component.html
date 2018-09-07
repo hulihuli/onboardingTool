@@ -5,9 +5,9 @@
                 <label>VC: </label>
                 <input type="text" class="form-control" style="width: 90%" [(ngModel)]="job.virtualCluster" list="vcList">
                 <datalist id="vcList">
-                    <option *ngFor="let virtualCluster of virtualClusters; trackBy: index" value="{{virtualCluster}}"></option>
+                    <option *ngFor="let virtualCluster of virtualClusters;" value="{{virtualCluster}}"></option>
                 </datalist>
-                <span>{{virtualCluster}}</span>
+                <!-- <span>{{virtualCluster}}</span> -->
             </div>
             <div class="form-group" style="width: 45%">
                 <label for="Cloud Priority">Cloud Priority: </label>

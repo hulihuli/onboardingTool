@@ -5,11 +5,10 @@ export const environmentDev = {
 	defaultVC: "https://cosmos08.osdinfra.net/cosmos/Knowledge.STCA.prod/",
 	defaultCouldPriority: 800,
     logLevel: LogLevel.Trace,
-    enableAAD: false,
+    enableAAD: true,
 	adalConfig: {
 		tenant: "microsoft.onmicrosoft.com",
 		clientId: "31997c92-67a4-43be-b535-049e2f5b9e2c", //registered application's Id (GUID)
-		postLogoutRedirectUri: "http://localhost:8080/logout",
-		//redirectUri: "http://localhost:8080/" //comment this field to return current url after authentication
+		postLogoutRedirectUri: "http://localhost:4200/logout"
 	}
 };

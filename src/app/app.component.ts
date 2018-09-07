@@ -35,35 +35,13 @@ export class AppComponent extends BaseComponent implements OnInit, OnDestroy {
 		    this.adalService.handleWindowCallback();
         }
 
-        // this.user = new User();
-        this.user = new User("Li Hu (Beyondsoft Corporation)", "v-lihu@microsoft.com", false);
-		// if (this.adalService.userInfo.authenticated) {
-		// 	this.logger.info("authenticated user info", this.adalService.userInfo);
-		// 	let profile = this.adalService.userInfo.profile;
-		// 	this.user = new User(profile.name, profile.upn, this.adalService.userInfo.authenticated);
-		// } else {
-		// 	throw "";
-		// }
-
-		//this.startLoading();
-		//Listen the navigation events to start or complete the slim bar loading
-		// this.sub = this.router.events.subscribe(
-		// 	event => {
-		// 		if (event instanceof NavigationStart && !this.adalService.userInfo.authenticated) {
-		// 			// this.slimLoader.start();
-		// 			this.router.navigate(["/login"], { queryParams: { returnUrl: "/triage/supervisor" } });
-		// 		} else if (
-		// 			event instanceof NavigationEnd ||
-		// 			event instanceof NavigationCancel ||
-		// 			event instanceof NavigationError
-		// 		) {
-		// 			//this.slimLoader.complete();
-		// 		}
-		// 	},
-		// 	(error: any) => {
-		// 		//this.slimLoader.complete();
-		// 	}
-		// );
+        //this.user = new User("Li Hu (Beyondsoft Corporation)", "v-lihu@microsoft.com", false);
+        this.user = new User();
+		if (this.adalService.userInfo.authenticated) {
+			//this.logger.info("authenticated user info", this.adalService.userInfo);
+			let profile = this.adalService.userInfo.profile;
+			this.user = new User(profile.name, profile.upn, this.adalService.userInfo.authenticated);
+		}
 	}
 
 	// Logout Method

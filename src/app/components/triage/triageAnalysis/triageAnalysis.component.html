@@ -15,11 +15,11 @@
 
             <div style="padding-top: 5px;">
                 <label class="radio-inline">
-                    <input type="radio" name="optradio" [(ngModel)]="side2Type" value="Triage" (ngModelChange)="initSide2Version($event)">
+                    <input type="radio" name="optradio" [(ngModel)]="side2Type" value="Triage" (ngModelChange)="initSide2Version()">
                     <b>Triage</b>
                 </label>
                 <label class="radio-inline" style="margin-left: 30px;">
-                    <input type="radio" name="optradio" [(ngModel)]="side2Type" value="Standard" (ngModelChange)="initSide2Version($event)">
+                    <input type="radio" name="optradio" [(ngModel)]="side2Type" value="Standard" (ngModelChange)="initSide2Version()">
                     <b>Standard</b>
                 </label>
             </div>
@@ -57,7 +57,7 @@
                                         <a class="navbar-brand" href="#">Standard</a>
                                     </div>
                                     <ul class="nav navbar-nav">
-                                        <li [class.active]="currentSide1.version == side1VersionNum" (click)="setSide1ViewVersionNum(side1VersionNum)" *ngFor="let side1VersionNum of side1VersionNums; trackBy: index">
+                                        <li [class.active]="currentSide1.version == side1VersionNum" (click)="setSide1ViewVersionNum(side1VersionNum)" *ngFor="let side1VersionNum of side1VersionNums; trackBy: trackByIndex">
                                             <a class="pointer" [innerHTML]="side1VersionNum"></a>
                                         </li>
                                     </ul>
@@ -114,7 +114,7 @@
                                                         <th class="text-center" *ngIf="customerId === 'WrapStar'">WrapStar Model</th>
                                                     </thead>
                                                     <tbody>
-                                                        <tr *ngFor="let mappingFile of currentSide1.mappingSetting.mappingFiles; trackBy: index">
+                                                        <tr *ngFor="let mappingFile of currentSide1.mappingSetting.mappingFiles; trackBy: trackByIndex">
                                                             <td [colSpan]="customerId === 'WrapStar'? 1 : 2">
                                                                 <li class="list-group-item">
                                                                     <span [innerHTML]="mappingFile.name + '@' + mappingFile.version"></span>
@@ -150,7 +150,7 @@
                                             </td>
                                             <td>
                                                 <ul class="list-group" style="margin-bottom: 0;">
-                                                    <li class="list-group-item" *ngFor="let functoid of currentSide1.mappingSetting.functoids; trackBy: index">
+                                                    <li class="list-group-item" *ngFor="let functoid of currentSide1.mappingSetting.functoids; trackBy: trackByIndex">
                                                         {{functoid.name}}
                                                         <span class="badge pointer" style="background-color: skyblue;" (click)="downloadFunctoid(currentSide1.version, functoid)">
                                                             <i class="fa fa-cloud-download" *ngIf="!functoid.isDownloading"></i>
@@ -508,7 +508,7 @@
                         </a>
                     </div>
                 </div>
-                <div style="text-align:center" *ngIf="isFetchingSBSProperties">
+                <div style="text-align:center" *ngIf="isFetchingExtraProperties">
                     <br/>
                     <i class="fa fa-spinner fa-pulse fa-fw fa-3x"></i>
                 </div>
